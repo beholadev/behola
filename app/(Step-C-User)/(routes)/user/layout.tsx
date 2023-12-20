@@ -12,10 +12,10 @@ const UserLayout = ({
                 <UserSidebar />
             </div>
             <main className="md:pl-72">
-                <div className="pl-10 pt-10">
+                <div>
                 <UserTopbar />    
-                {children}
                 </div>
+                <div>{children}</div>
             </main>
         </div>
     );

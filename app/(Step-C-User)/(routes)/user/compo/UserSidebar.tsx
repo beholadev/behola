@@ -32,11 +32,21 @@ import { LayoutDashboard,
     Baseline,
     PaintBucket,
     Cog,
+    Dices,
+    Frame,
+    Home,
+    MessagesSquare,
+    PersonStanding,
+    Wand,
+    ScrollText,
+    ToyBrick,
+    Tally4,
 
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
+import { usePathname } from "next/navigation";
 
 const ibmplexfont = IBM_Plex_Sans({ weight:"700", subsets: ["latin"] });
 
@@ -51,19 +61,19 @@ const routes = [
     },
     {
         label: "Favourites",
-        href: "//user/Favourites",
+        href: " /user/Favourites",
         icon:  ChevronsRight,
         color: "text-[#FFC107]",    
     },
     {
         label: "AI Chatbots",
-        href: "//user/ai-chatbots",
+        href: "/user/ai-chatbots",
         icon:  ChevronsRight,
         color: "text-[#FFC107]",    
     },
     {
         label: "Code Generator",
-        href: "//user/code-generator",
+        href: "/user/code-generator",
         icon:  ChevronsRight,
         color: "text-[#FFC107]",    
     },
@@ -215,21 +225,105 @@ const routesaccount = [
     },    
 ];
 
+
+const routesallcontents = [
+    {
+        label: "Branding",
+        href: "/user/allbranding",
+        icon:  Dices,
+        color: "text-white",   
+    },    
+    {
+        label: "Frameworks",
+        href: "/user/allcopywriting",
+        icon:  Frame,
+        color: "text-white",   
+    },    
+    {
+        label: "Homepage",
+        href: "/user/allhomepage",
+        icon:  Home,
+        color: "text-white",   
+    },    
+    {
+        label: "Socialmedia",
+        href: "/user/allsocialmedia",
+        icon:  MessagesSquare,
+        color: "text-white",   
+    },    
+    {
+        label: "Employee",
+        href: "/user/allemployee",
+        icon:  PersonStanding,
+        color: "text-white",   
+    },    
+];
+
+const routeswizard = [
+    {
+        label: "Blogging",
+        href: "/user/blogwizard",
+        icon:  ToyBrick,
+        color: "text-white",   
+    },    
+    {
+        label: "Proposal",
+        href: "/user/proposalwizard",
+        icon:  ScrollText,
+        color: "text-white",   
+    },    
+];
+
+
+const routescreation = [
+    {
+        label: "Create Image",
+        href: "/user/create-image",
+        icon:  FileImage,
+        color: "text-white",   
+    },    
+    {
+        label: "Create Music",
+        href: "/user/create-music",
+        icon:  Guitar,
+        color: "text-white",   
+    },    
+    {
+        label: "Create Video",
+        href: "/user/create-video",
+        icon:  FileVideo2,
+        color: "text-white",   
+    },    
+    {
+        label: "Text to Speech",
+        href: "/user/text-to-speech",
+        icon:  Speech,
+        color: "text-white",   
+    },    
+    {
+        label: "Speech to Text",
+        href: "/user/speecht-to-text",
+        icon:  Type,
+        color: "text-white",   
+    },                
+];
+
+
 const UserSidebar = () => {
-    
+    const pathname = usePathname();
     return (
-     <ScrollArea className={cn("space-y-2 py-2 flex flex-col h-full bg-[#111827] text-white", ibmplexfont.className)}>
+     <ScrollArea className={cn("space-y-2 py-2 flex flex-col h-full transition duration-600 bg-[#111827] text-white", ibmplexfont.className)}>
             
             <div className="px-12 py-3 pt-4 flex-1">
             <Link href="/user" className="flex items-center pl-3 pr-2 pt-2 pb-2">
-                <div className="relative w-full h-10 mr-4">
+                <div className="relative w-full h-9 mr-4">
                 <Image fill src="/behola.png" alt="logo"/> 
                 </div>    
             </Link>
 
             <Link href="/user" className="flex flex-1">
-                <div className="relative text-sm w-full pl-4 mb-6 text-[#FFC107] pb-4">
-                 <p>An AI content generator!</p>
+                <div className="relative text-sm w-full pl-6 mb-6 text-[#FFC107] pb-4">
+                 <p>AI For Clerical Works   </p>
                 </div>    
             </Link>
 
@@ -237,7 +331,8 @@ const UserSidebar = () => {
             <div className="pt-2 pb-2">
             <Link 
                 href="/user"
-                className="text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
+                className={cn("text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition", 
+                pathname === "/user" ? "text-white bg-yellow-200/50 hover:bg-yellow-200/50" : "text-white")}>
                 <div className="flex items-center flex-1 text-[#FFC107]">
                 <LayoutDashboard className="h-5 w-5 mr-3 text-[#FFC107]" />
                 User Dashboard
@@ -250,7 +345,7 @@ const UserSidebar = () => {
                 <Link 
                 href={route.href}
                 key={route.href}
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">                
+                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route.href ? "text-white bg-white/10" : "text-zinc-400")}>                
                 <div className="flex items-center ml-2 flex-1 text-white">
                 <route.icon className={"h-5 w-5 mr-3 text-white"} />
                 {route.label}
@@ -259,7 +354,34 @@ const UserSidebar = () => {
             ))}
             </div>
 
-            
+
+            <div className="pt-4 pb-2 mt-2">
+            <Link 
+                href="/user"
+                className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
+                <div className="flex items-center flex-1 text-[#FFC107]">
+                <Wand className="h-5 w-5 mr-3 text-[#FFC107]" />
+                Wizards
+                </div>
+            </Link>
+            </div>
+          
+            <div className="pt-1 mt-2">
+            {routeswizard.map((routes9) => (
+                <Link 
+                href={routes9.href}
+                key={routes9.href}
+                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === routes9.href ? "text-white bg-white/10" : "text-zinc-400")}>              
+                <div className="flex items-center ml-2 flex-1 text-white">
+                <routes9.icon className={"h-5 w-5 mr-3 text-white"} />
+                {routes9.label}
+                </div>
+                </Link>
+            ))}
+            </div>
+
+
+
 
             <div className="pt-4 pb-2 mt-2">
             <Link 
@@ -279,7 +401,7 @@ const UserSidebar = () => {
                 <Link 
                 href={route1.href}
                 key={route1.href}
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">                
+                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route1.href ? "text-white bg-white/10" : "text-zinc-400")}>                 
                 <div className="flex items-center ml-2 flex-1 text-white">
                 <route1.icon className={"h-5 w-5 mr-3 text-white"} />
                 {route1.label}
@@ -300,59 +422,48 @@ const UserSidebar = () => {
             </div>           
 
             <div className=" mt-2">
-            <Link 
-                href="/user/create-image"
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">
+            {routescreation.map((route100) => (
+                <Link 
+                href={route100.href}
+                key={route100.href}
+                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route100.href ? "text-white bg-white/10" : "text-zinc-400")}>                 
                 <div className="flex items-center ml-2 flex-1 text-white">
-                <FileImage className="h-5 w-5 mr-3 text-white" />
-                Create Image
+                <route100.icon className={"h-5 w-5 mr-3 text-white"} />
+                {route100.label}
                 </div>
-            </Link>
-            </div>        
+                </Link>
+            ))}
+            </div>  
 
-            <div>
+            <div className="pt-4 pb-2 mt-2">
             <Link 
-                href="/user/create-music"
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <Guitar className="h-5 w-5 mr-3 text-white" />
-                Create Music
+                href="/user"
+                className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
+                <div className="flex items-center flex-1 text-[#FFC107]">
+                <Tally4 className="h-5 w-5 mr-3 text-[#FFC107]" />
+                All Contents
                 </div>
             </Link>
-            </div>        
+            </div>
+          
+            <div className="pt-1 mt-2">
+            {routesallcontents.map((routes99) => (
+                <Link 
+                href={routes99.href}
+                key={routes99.href}
+                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === routes99.href ? "text-white bg-white/10" : "text-zinc-400")}>             
+                <div className="flex items-center ml-2 flex-1 text-white">
+                <routes99.icon className={"h-5 w-5 mr-3 text-white"} />
+                {routes99.label}
+                </div>
+                </Link>
+            ))}
+            </div>
 
-            <div>
-            <Link 
-                href="/user/create-video"
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <FileVideo2 className="h-5 w-5 mr-3 text-white" />
-                Create Video
-                </div>
-            </Link>
-            </div>                    
 
-            <div>
-            <Link 
-                href="/user/text-to-speech"
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <Speech className="h-5 w-5 mr-3 text-white" />
-                Text to speech
-                </div>
-            </Link>
-            </div>   
 
-            <div>
-            <Link 
-                href="/user/speech-to-text"
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <Type className="h-5 w-5 mr-3 text-white" />
-                Speech to Text
-                </div>
-            </Link>
-            </div>   
+
+
 
             <div className="pt-4 pb-2 mt-2">
             <Link 
@@ -370,7 +481,7 @@ const UserSidebar = () => {
                 <Link 
                 href={route2.href}
                 key={route2.href}
-                className="text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition">                
+                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route2.href ? "text-white bg-white/10" : "text-zinc-400")}>               
                 <div className="flex items-center ml-2 flex-1 text-white">
                 <route2.icon className={"h-5 w-5 mr-3 text-white"} />
                 {route2.label}

@@ -1,6 +1,6 @@
 const User = () => {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-between p-24">
+        <div className="pl-10 pt-10">
          User [ uname ] Page
         </div>
     );
