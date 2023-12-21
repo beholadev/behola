@@ -19,8 +19,11 @@ import {
   const library = () => {
     return (
       <Menubar>
+        
         <MenubarMenu>
+        
           <MenubarTrigger>File</MenubarTrigger>
+        
           <MenubarContent>
             <MenubarItem>
               New Tab <MenubarShortcut>⌘T</MenubarShortcut>
@@ -44,6 +47,9 @@ import {
             </MenubarItem>
           </MenubarContent>
         </MenubarMenu>
+        
+
+        
         <MenubarMenu>
           <MenubarTrigger>Edit</MenubarTrigger>
           <MenubarContent>

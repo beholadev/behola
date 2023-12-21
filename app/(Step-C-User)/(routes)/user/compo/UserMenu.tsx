@@ -97,19 +97,219 @@ const routes = [
         label: "Blog Tools",
         href: "/user/blog-tools",
         icon:  Pencil,
-        color: "text-[#FFC107]",   
+        color: "text-[#FFC107]", 
+        submenu: true,
+        submenuitems: [
+            {
+                label: "Blog Topic Ideas",
+                href: "/user/blog-tools/topic-ideas",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Blog Outline",
+                href: "/user/blog-tools/blog-outline",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Blog Image Prompts",
+                href: "/user/blog-tools/blog-image-prompts",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Blog Title",
+                href: "/user/blog-tools/blog-title-generator",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Blog Content Calendar",
+                href: "/user/blog-tools/blog-content-calendar",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Quick Blog Post",
+                href: "/user/blog-tools/quick-blog-post",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Include Keywords",
+                href: "/user/blog-tools/include-keywords",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Advanced Blog Post",
+                href: "/user/blog-tools/advanced-blog-post",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "SEO Optimized Blog Post",
+                href: "/user/blog-tools/seo-optimized-blog-post",
+                color: "text-[#FFC107]",
+            },                        
+            {
+                label: "Human Blog Post",
+                href: "/user/blog-tools/human-blog-post",
+                color: "text-[#FFC107]",
+            },
+        ],  
     },
     {
         label: "Book Writing",
         href: "/user/book-writing",
         icon:  BookOpen,
         color: "text-[#FFC107]",   
+        submenu: true,
+        submenuitems: [
+            {
+                label: "Book Topic Ideas",
+                href: "/user/book-writing/topic-ideas",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Book Outline",
+                href: "/user/book-writing/book-outline",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Book Image Prompts",
+                href: "/user/book-writing/book-image-prompts",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Book Title Ideas",
+                href: "/user/book-writing/book-title-ideas",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Book Writing",
+                href: "/user/book-writing/book-writing",
+                color: "text-[#FFC107]",
+            },
+        ],  
+
     },
     {
         label: "Social Media",
         href: "/user/social-media",
         icon:  Share2,
         color: "text-[#FFC107]",   
+        submenu: true,
+        submenuitems: [
+            {
+                label: "All Social Media Posts",
+                href: "/user/social-media/all-social-media-posts",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Facts Finder",
+                href: "/user/social-media/facts-finder",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Social Media Calendar",
+                href: "/user/social-media/social-media-calendar",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Facebook Posts",
+                href: "/user/social-media/facebook-posts",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Instagram Carousel",
+                href: "/user/social-media/instagram-carousel",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Instagram Caption Pro",
+                href: "/user/social-media/instagram-caption-pro",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Instagram Caption",
+                href: "/user/social-media/instagram-caption",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Linkedin Post",
+                href: "/user/social-media/linkedin-post",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Linkedin Post Pro",
+                href: "/user/social-media/linkedin-post-pro",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Pinterest Pin",
+                href: "/user/social-media/pinterest-pin",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Instagram Hashtag Generator",
+                href: "/user/social-media/instagram-hashtag-generator",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Script for Youtube Video",
+                href: "/user/social-media/script-for-youtube-video",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Script for TikTok Video",
+                href: "/user/social-media/script-for-tiktok-video",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Script for Instagram Reel",
+                href: "/user/social-media/script-for-instagram-reel",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Twitter Post",
+                href: "/user/social-media/twitter-post",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Hook Generator",
+                href: "/user/social-media/hook-generator",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Motivational Post",
+                href: "/user/social-media/motivational-post",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "TikTok Caption",
+                href: "/user/social-media/tiktok-caption",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Instagram Threads Generator",
+                href: "/user/social-media/instagram-threads-generator",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Replies for Instagram",
+                href: "/user/social-media/replies-for-instagram",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Replies for Linkedin",
+                href: "/user/social-media/replies-for-linkedin",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Replies for Twitter",
+                href: "/user/social-media/replies-for-twitter",
+                color: "text-[#FFC107]",
+            },
+            {
+                label: "Replies for Facebook",
+                href: "/user/social-media/replies-for-facebook",
+                color: "text-[#FFC107]",
+            },
+        ],  
     },
     {
         label: "Advertisement",
@@ -327,6 +527,7 @@ const routescreation = [
 const UserMenu = () => {
     const pathname = usePathname();
     return (
+        
         <div className='flex flex-row items-right justify-end mr-10'>
             <Menubar className='w-fit'>
             <MenubarMenu>
@@ -395,45 +596,62 @@ const UserMenu = () => {
             ))}
             </div>
             </MenubarContent>
-            
+        </MenubarMenu>        
 
-            </MenubarMenu>        
+<MenubarMenu>
+  <Link href="/user" className="justify-start font-sm cursor-pointer">
+    <div>
+      <MenubarTrigger>
+        <Baseline className="pr-2" />
+        Text Contents
+      </MenubarTrigger>
+    </div>
+  </Link>
 
-
-            <MenubarMenu>    
-            <div>
-            <Link 
-                href="/user"
-                className="justify-start font-sm cursor-pointer">
-                <div>
-                <MenubarTrigger>        
-                <Baseline className="pr-2" />
-                Text Contents
-                </MenubarTrigger>    
-                </div>
-            </Link>
-            </div>
-
-            
-            <MenubarContent>
-            <div>    
-            {routesmain.map((route1) => (
-                <Link 
-                href={route1.href}
-                key={route1.href}
-                className="text-sm cursor-pointer rounded-lg transition">
-                <MenubarItem>                     
-                <div className="flex items-center">
+  <MenubarContent>
+    <div>
+      {routesmain.map((route1) => (
+        <Link
+          href={route1.href}
+          key={route1.href}
+          className="text-sm cursor-pointer rounded-lg transition"
+        >
+          <MenubarSub>
+            <MenubarSubTrigger>
+              <div className="flex items-center">
                 <route1.icon className="pr-2" />
                 {route1.label}
+              </div>
+            </MenubarSubTrigger>
+            <MenubarSubContent>
+              {route1.submenuitems && (
+                <div>
+                  {route1.submenuitems.map((submenuitem) => (
+                    <Link
+                      href={submenuitem.href}
+                      key={submenuitem.href}
+                      className="text-sm cursor-pointer rounded-lg transition"
+                    >
+                      <MenubarItem>
+                        <div className="flex items-center">
+                          {/* You can use the icon for sub-menu items if needed */}
+                          {/* <submenuitem.icon className="pr-2" /> */}
+                          {submenuitem.label}
+                        </div>
+                      </MenubarItem>
+                    </Link>
+                  ))}
                 </div>
-                </MenubarItem>
-                </Link>
-            ))}
-            </div>  
+              )}
+            </MenubarSubContent>
+          </MenubarSub>
+        </Link>
+      ))}
+    </div>
+  </MenubarContent>
+</MenubarMenu>
 
-            </MenubarContent>    
-            </MenubarMenu>    
+
 
             <MenubarMenu>    
             <div>
@@ -544,7 +762,6 @@ const UserMenu = () => {
 
             </Menubar>    
         </div>
-
     );
 }
 
