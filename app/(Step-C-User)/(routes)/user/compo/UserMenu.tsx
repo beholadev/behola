@@ -1,9 +1,11 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { IBM_Plex_Sans } from 'next/font/google';
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+
+
 import { LayoutDashboard, 
     ChevronsRight, 
     Pencil, 
@@ -44,13 +46,24 @@ import { LayoutDashboard,
 
 } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-import { Separator } from "@/components/ui/separator";
-import { usePathname } from "next/navigation";
+
+import {
+    Menubar,
+    MenubarCheckboxItem,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarRadioGroup,
+    MenubarRadioItem,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarSub,
+    MenubarSubContent,
+    MenubarSubTrigger,
+    MenubarTrigger,
+  } from "@/components/ui/menubar"
 
 const ibmplexfont = IBM_Plex_Sans({ weight:"700", subsets: ["latin"] });
-
-
 
 const routes = [
     {
@@ -78,7 +91,6 @@ const routes = [
         color: "text-[#FFC107]",    
     },
  ];
-
 
  const routesmain = [
     {
@@ -309,190 +321,231 @@ const routescreation = [
 ];
 
 
-const UserSidebar = () => {
+
+
+
+const UserMenu = () => {
     const pathname = usePathname();
     return (
-     <ScrollArea className={cn("space-y-2 py-2 flex flex-col h-full transition duration-600 bg-[#111827] text-white", ibmplexfont.className)}>
+        <div className='flex flex-row items-right justify-end mr-10'>
+            <Menubar className='w-fit'>
+            <MenubarMenu>
             
-            <div className="px-12 py-3 pt-4 flex-1">
-            <Link href="/user" className="flex items-center pl-3 pr-2 pt-2 pb-2">
-                <div className="relative w-full h-9 mr-4">
-                <Image fill src="/behola.png" alt="logo"/> 
-                </div>    
-            </Link>
-
-            <Link href="/user" className="flex flex-1">
-                <div className="relative text-sm w-full pl-6 mb-6 text-[#FFC107] pb-4">
-                 <p>AI For Clerical Works   </p>
-                </div>    
-            </Link>
-
-
-            <div className="pt-2 pb-2">
             <Link 
                 href="/user"
-                className={cn("text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition", 
-                pathname === "/user" ? "text-white bg-yellow-200/50 hover:bg-yellow-200/50" : "text-white")}>
-                <div className="flex items-center flex-1 text-[#FFC107]">
-                <LayoutDashboard className="h-5 w-5 mr-3 text-[#FFC107]" />
+                className="justify-start font-sm cursor-pointer">
+                <div>
+                <MenubarTrigger>
+                <LayoutDashboard className="pr-2" />
                 User Dashboard
+                </MenubarTrigger>
                 </div>
             </Link>
-            </div>
+            
 
-            <div className="pt-1 mt-2">
+            <MenubarContent>
+            <div>
+            
             {routes.map((route) => (
                 <Link 
                 href={route.href}
                 key={route.href}
-                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route.href ? "text-white bg-white/10" : "text-zinc-400")}>                
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <route.icon className={"h-5 w-5 mr-3 text-white"} />
+                className="text-sm cursor-pointer rounded-lg transition">                
+                <MenubarItem>
+                <div className="flex items-center">
+                <route.icon className="pr-2" />
                 {route.label}
                 </div>
-                </Link>
-            ))}
-            </div>
+                </MenubarItem>
+                </Link>))}
+            
+            </div>                
+            </MenubarContent>
+            </MenubarMenu>    
 
 
-            <div className="pt-4 pb-2 mt-2">
+            <MenubarMenu>
+            <div>
             <Link 
                 href="/user"
-                className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
-                <div className="flex items-center flex-1 text-[#FFC107]">
-                <Wand className="h-5 w-5 mr-3 text-[#FFC107]" />
+                className="justify-start font-sm cursor-pointer">
+                <div>
+                <MenubarTrigger>
+                <Wand className="pr-2" />
                 Wizards
+                </MenubarTrigger>    
                 </div>
             </Link>
             </div>
           
-            <div className="pt-1 mt-2">
+            <MenubarContent>
+            <div>
             {routeswizard.map((routes9) => (
                 <Link 
                 href={routes9.href}
                 key={routes9.href}
-                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === routes9.href ? "text-white bg-white/10" : "text-zinc-400")}>              
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <routes9.icon className={"h-5 w-5 mr-3 text-white"} />
-                {routes9.label}
+                className="text-sm cursor-pointer rounded-lg transition">              
+                <MenubarItem>               
+                <div className="flex items-center">
+                <routes9.icon className="pr-2" />
+                {routes9.label}    
                 </div>
+                </MenubarItem>
                 </Link>
             ))}
             </div>
+            </MenubarContent>
+            
+
+            </MenubarMenu>        
 
 
-
-
-            <div className="pt-4 pb-2 mt-2">
+            <MenubarMenu>    
+            <div>
             <Link 
                 href="/user"
-                className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
-                <div className="flex items-center flex-1 text-[#FFC107]">
-                <Baseline className="h-5 w-5 mr-3 text-[#FFC107]" />
+                className="justify-start font-sm cursor-pointer">
+                <div>
+                <MenubarTrigger>        
+                <Baseline className="pr-2" />
                 Text Contents
+                </MenubarTrigger>    
                 </div>
             </Link>
             </div>
 
             
-
-            <div className=" mt-2">
+            <MenubarContent>
+            <div>    
             {routesmain.map((route1) => (
                 <Link 
                 href={route1.href}
                 key={route1.href}
-                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route1.href ? "text-white bg-white/10" : "text-zinc-400")}>                 
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <route1.icon className={"h-5 w-5 mr-3 text-white"} />
+                className="text-sm cursor-pointer rounded-lg transition">
+                <MenubarItem>                     
+                <div className="flex items-center">
+                <route1.icon className="pr-2" />
                 {route1.label}
                 </div>
+                </MenubarItem>
                 </Link>
             ))}
             </div>  
 
-            <div className="pt-4 pb-2 mt-2">
+            </MenubarContent>    
+            </MenubarMenu>    
+
+            <MenubarMenu>    
+            <div>
             <Link 
                 href="/user"
-                className="text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
-                <div className="flex items-center flex-1 text-[#FFC107]">
-                <PaintBucket className="h-5 w-5 mr-3 text-[#FFC107]" />
+                className="justify-start font-sm cursor-pointer">
+                <div>
+                <MenubarTrigger>    
+                <PaintBucket className="pr-2" />
                 Creations
+                </MenubarTrigger>    
                 </div>
             </Link>
-            </div>           
+            </div>       
 
-            <div className=" mt-2">
+
+            <MenubarContent>
+            <div>
             {routescreation.map((route100) => (
                 <Link 
                 href={route100.href}
                 key={route100.href}
-                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route100.href ? "text-white bg-white/10" : "text-zinc-400")}>                 
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <route100.icon className={"h-5 w-5 mr-3 text-white"} />
+                className="text-sm cursor-pointer rounded-lg transition">
+                <MenubarItem>                     
+                <div className="flex items-center">
+                <route100.icon className="pr-2" />
                 {route100.label}
                 </div>
+                </MenubarItem>
                 </Link>
             ))}
             </div>  
+            </MenubarContent>
+            </MenubarMenu>    
 
-            <div className="pt-4 pb-2 mt-2">
+            <MenubarMenu>    
+            <div>
             <Link 
                 href="/user"
-                className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
-                <div className="flex items-center flex-1 text-[#FFC107]">
-                <Tally4 className="h-5 w-5 mr-3 text-[#FFC107]" />
+                className="justify-start font-sm cursor-pointer">
+                <div>
+                <MenubarTrigger>    
+                <Tally4 className="pr-2" />
                 All Contents
+                </MenubarTrigger>    
                 </div>
             </Link>
             </div>
           
-            <div className="pt-1 mt-2">
+            <MenubarContent>
+            <div>
             {routesallcontents.map((routes99) => (
                 <Link 
                 href={routes99.href}
                 key={routes99.href}
-                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === routes99.href ? "text-white bg-white/10" : "text-zinc-400")}>             
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <routes99.icon className={"h-5 w-5 mr-3 text-white"} />
+                className="text-sm cursor-pointer rounded-lg transition">
+                <MenubarItem>                 
+                <div className="flex items-center">
+                <routes99.icon className="pr-2" />
                 {routes99.label}
                 </div>
+                </MenubarItem>
                 </Link>
             ))}
             </div>
+            </MenubarContent>
+            </MenubarMenu>        
 
 
 
+            <MenubarMenu>    
 
-
-
-            <div className="pt-4 pb-2 mt-2">
+            <div>
             <Link 
                 href="/user"
-                className="text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition">
-                <div className="flex items-center flex-1 text-[#FFC107]">
-                <Cog className="h-5 w-5 mr-3 text-[#FFC107]" />
+                className="justify-start font-sm cursor-pointer">
+                <div>
+                <MenubarTrigger>    
+                <Cog className="pr-2" />
                 Account
+                </MenubarTrigger>    
                 </div>
             </Link>
             </div>   
 
-            <div className=" mt-2">
+            <MenubarContent>
+            <div>
             {routesaccount.map((route2) => (
                 <Link 
                 href={route2.href}
                 key={route2.href}
-                className={cn("text-sm group flex p-1 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", pathname === route2.href ? "text-white bg-white/10" : "text-zinc-400")}>               
-                <div className="flex items-center ml-2 flex-1 text-white">
-                <route2.icon className={"h-5 w-5 mr-3 text-white"} />
+                className="text-sm cursor-pointer rounded-lg transition">    
+                <MenubarItem>         
+                <div className="flex items-center">
+                <route2.icon className="pr-2" />
                 {route2.label}
                 </div>
+                </MenubarItem>
                 </Link>
             ))}
             </div>
+            </MenubarContent>
+            </MenubarMenu>    
 
-            </div>
-        </ScrollArea>
+
+
+
+
+            </Menubar>    
+        </div>
+
     );
 }
 
-export default UserSidebar;
+export default UserMenu;
