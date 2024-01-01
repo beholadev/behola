@@ -7,32 +7,30 @@ import UserSidebar from "./UserSidebar";
 import { useEffect, useState } from "react";
 
 const UserMobileSidebar = () => {
+  const [isMounted, setIsMounted] = useState(false);
 
-    const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-    useEffect(() => {
-        setIsMounted(true);
-    },[]);
+  if (!isMounted) {
+    return null;
+  }
 
-    if (!isMounted){
-        return null;
-    }
-
-    return (
-        <Sheet>
-        <SheetTrigger>    
+  return (
+    <Sheet>
+      <SheetTrigger>
         <div>
-            <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu />
-            </Button>
+          <Button variant="ghost" size="icon" className="md:hidden">
+            <Menu />
+          </Button>
         </div>
-        </SheetTrigger>
-        <SheetContent side="left" className="p-0">
-            <UserSidebar />
-        </SheetContent>
-        </Sheet>
-    );
-}
-
+      </SheetTrigger>
+      <SheetContent side="left" className="p-0 w-fit">
+        <UserSidebar />
+      </SheetContent>
+    </Sheet>
+  );
+};
 
 export default UserMobileSidebar;
