@@ -47,6 +47,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import { usePathname } from "next/navigation";
+import { Input } from "@/components/ui/input";
 
 const ibmplexfont = IBM_Plex_Sans({ weight: "700", subsets: ["latin"] });
 
@@ -312,31 +313,26 @@ const UserSidebar = () => {
       )}
     >
       <div className="flex flex-col w-fit">
-        <div className="px-12 py-3 pt-4">
-          <Link href="/user" className="flex items-center pl-2 pr-2 pt-2 pb-2">
-            <div className="relative w-full h-9 mr-4">
-              <Image fill src="/behola.png" alt="logo" />
-            </div>
-          </Link>
-
-          <Link href="/user" className="flex flex-1">
-            <div className="relative text-sm w-full pl-6 mb-6 text-[#FFC107] pb-4">
-              <p>AI For Clerical Works </p>
-            </div>
-          </Link>
+        <div className="px-12 py-3 pt-1">
+          <div className="pb-3 mb-2">
+            <Input
+              className="text-white bg-[#111827]"
+              placeholder="Search Tools"
+            />
+          </div>
 
           <div className="pt-2 pb-2">
             <Link
               href="/user"
               className={cn(
-                "text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition",
+                "text-sm group border border-white flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition",
                 pathname === "/user"
-                  ? "text-white bg-yellow-200/50 hover:bg-yellow-200/50"
+                  ? "text-white bg-gray-200/50 hover:bg-gray-200/50"
                   : "text-white"
               )}
             >
-              <div className="flex items-center flex-1 text-[#FFC107]">
-                <LayoutDashboard className="h-5 w-5 mr-3 text-[#FFC107]" />
+              <div className="flex items-center flex-1 text-white">
+                <LayoutDashboard className="h-5 w-5 mr-3 text-white" />
                 User Dashboard
               </div>
             </Link>
@@ -365,10 +361,10 @@ const UserSidebar = () => {
           <div className="pt-4 pb-2 mt-2">
             <Link
               href="/user"
-              className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
+              className="text-sm border border-white group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
             >
-              <div className="flex items-center flex-1 text-[#FFC107]">
-                <Wand className="h-5 w-5 mr-3 text-[#FFC107]" />
+              <div className="flex items-center flex-1 text-white">
+                <Wand className="h-5 w-5 mr-3 text-white" />
                 Wizards
               </div>
             </Link>
@@ -397,10 +393,10 @@ const UserSidebar = () => {
           <div className="pt-4 pb-2 mt-2">
             <Link
               href="/user"
-              className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
+              className="text-sm border border-white group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
             >
-              <div className="flex items-center flex-1 text-[#FFC107]">
-                <Baseline className="h-5 w-5 mr-3 text-[#FFC107]" />
+              <div className="flex items-center flex-1 text-white">
+                <Baseline className="h-5 w-5 mr-3 text-white" />
                 Text Contents
               </div>
             </Link>
@@ -429,10 +425,10 @@ const UserSidebar = () => {
           <div className="pt-4 pb-2 mt-2">
             <Link
               href="/user"
-              className="text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
+              className="text-sm group border border-white flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
             >
-              <div className="flex items-center flex-1 text-[#FFC107]">
-                <PaintBucket className="h-5 w-5 mr-3 text-[#FFC107]" />
+              <div className="flex items-center flex-1 text-white">
+                <PaintBucket className="h-5 w-5 mr-3 text-white" />
                 Creations
               </div>
             </Link>
@@ -461,10 +457,10 @@ const UserSidebar = () => {
           <div className="pt-4 pb-2 mt-2">
             <Link
               href="/user"
-              className="text-sm border border-[#FFC107] group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
+              className="text-sm border border-white group flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
             >
-              <div className="flex items-center flex-1 text-[#FFC107]">
-                <Tally4 className="h-5 w-5 mr-3 text-[#FFC107]" />
+              <div className="flex items-center flex-1 text-white">
+                <Tally4 className="h-5 w-5 mr-3 text-white" />
                 All Contents
               </div>
             </Link>
@@ -493,10 +489,10 @@ const UserSidebar = () => {
           <div className="pt-4 pb-2 mt-2">
             <Link
               href="/user"
-              className="text-sm group border border-[#FFC107] flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
+              className="text-sm group border border-white flex p-2 w-full justify-start font-medium tracking-widest cursor-pointer hover:text-white hover:bg-white/10 transition"
             >
-              <div className="flex items-center flex-1 text-[#FFC107]">
-                <Cog className="h-5 w-5 mr-3 text-[#FFC107]" />
+              <div className="flex items-center flex-1 text-white">
+                <Cog className="h-5 w-5 mr-3 text-white" />
                 Account
               </div>
             </Link>

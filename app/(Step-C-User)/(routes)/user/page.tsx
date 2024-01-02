@@ -1,10 +1,10 @@
-import UserMenu from "./compo/UserMenu";
+import UserDash from "@/app/(Step-C-User)/(routes)/user/compo/UserDash";
 
 const User = () => {
   return (
     <div>
-      <div className="pl-10 pt-10">
-        <UserMenu />
+      <div className="pl-0 pt-0">
+        <UserDash />
       </div>
     </div>
   );

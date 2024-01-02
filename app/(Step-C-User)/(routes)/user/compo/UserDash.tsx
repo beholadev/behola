@@ -5,17 +5,35 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 
-const library = () => {
+const UserDash = () => {
+  const behola_user = "Raja Raman";
+  const account_status = "Active";
+  const plan_name_details = "Premium";
+  const plan_usage_details = "130000";
+  const plan_total_usage_details = "500000";
   return (
-    <div className="m-10">
-      <div className="pb-3 mb-2">
-        <Input className="text-white bg-[#111827]" placeholder="Search Tools" />
-      </div>
-
-      <div className="flex flex-wrap space-even">
-        <div className="relative space-even  mt-3 items-justify space-around">
+    <div className="mt-4 ml-7 flex flex-wrap space-x-2">
+      <Card className="w-fit  mt-3 cursor-pointer bg-gray-200/10 hover:bg-gray-200/20">
+        <CardHeader>
+          <CardTitle className="text-[#111827] text-lg tracking-wider">
+            User Details | My Account
+          </CardTitle>
+          <CardDescription className="text-[#111827] text-sm tracking-wider">
+            Welcome Beholian -&nbsp;{behola_user}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="text-[#111827] text-xs tracking-wider">
+          <p>Account Status: {account_status} </p>
+          <p>Plan Details: {plan_name_details}</p>
+          <p>
+            Usage this month: {plan_usage_details}/{plan_total_usage_details}
+            (words)
+          </p>
+        </CardContent>
+      </Card>
+      <div className="mt-4 ml-7 flex flex-wrap space-x-2">
+        <div className="relative space-x-2  mt-3 items-justify space-around">
           <Card className="w-[180px] h-fit cursor-pointer bg-gray-200/10 hover:bg-gray-200/20">
             <CardContent className="text-[#111827] text-xs tracking-wider content-center">
               <h3 className="text-sm pt-5">Wizards</h3>
@@ -66,4 +84,4 @@ const library = () => {
   );
 };
 
-export default library;
+export default UserDash;
